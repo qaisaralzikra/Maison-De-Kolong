@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:mainson_de_kolong/Page/HomePage/HomePage.dart';
+import 'package:mainson_de_kolong/Page/SplashScreen/SplashScreen.dart';
 
 void main() {
   runApp(const Azka());
@@ -19,7 +20,12 @@ class Azka extends StatelessWidget {
           seedColor: const Color.fromRGBO(159, 221, 14, 1),
         ),
       ),
-      home: const MainStack(),
+      // 👉 atur route di sini saja
+      initialRoute: '/',
+      routes: {
+        '/': (context) => Splash(),
+        '/home': (context) => const MainStack(),
+      },
     );
   }
 }
@@ -51,10 +57,7 @@ class _MainStackState extends State<MainStack> {
       body: IndexedStack(index: _page, children: _pages),
 
       bottomNavigationBar: Container(
-        decoration: const BoxDecoration(
-          color: Colors.transparent,
-          
-        ),
+        decoration: const BoxDecoration(color: Colors.transparent),
         child: CurvedNavigationBar(
           index: _page,
           height: 60,
@@ -64,10 +67,14 @@ class _MainStackState extends State<MainStack> {
           animationDuration: const Duration(milliseconds: 400),
 
           items: [
-            Icon(Icons.home, size: 28, color: _page == 0 ? mainColor : inactiveColor),
-            Icon(Icons.list, size: 28, color: _page == 1 ? mainColor : inactiveColor),
-            Icon(Icons.settings, size: 28, color: _page == 2 ? mainColor : inactiveColor),
-            Icon(Icons.person, size: 28, color: _page == 3 ? mainColor : inactiveColor),
+            Icon(Icons.home,
+                size: 28, color: _page == 0 ? mainColor : inactiveColor),
+            Icon(Icons.list,
+                size: 28, color: _page == 1 ? mainColor : inactiveColor),
+            Icon(Icons.settings,
+                size: 28, color: _page == 2 ? mainColor : inactiveColor),
+            Icon(Icons.person,
+                size: 28, color: _page == 3 ? mainColor : inactiveColor),
           ],
 
           onTap: (index) {
@@ -75,7 +82,6 @@ class _MainStackState extends State<MainStack> {
               _page = index;
             });
           },
-          // ⚙️ trick: force curve to stay centered and balanced
           letIndexChange: (index) => true,
         ),
       ),
