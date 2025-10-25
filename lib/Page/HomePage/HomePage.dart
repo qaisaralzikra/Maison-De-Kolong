@@ -343,7 +343,7 @@ class Home extends StatelessWidget {
                                           style: TextStyle(fontSize: 11),
                                         ),
                                         TextSpan(
-                                          text: '30 Days',
+                                          text: '28 Days',
                                           style: TextStyle(
                                             fontWeight: FontWeight.bold,
                                             fontSize: 11,
@@ -1193,7 +1193,7 @@ class Home extends StatelessWidget {
                                       ),
                                       Container(
                                         child: Text(
-                                          'Maison De Kolong sudah tersertifikasi halal oleh MUI',
+                                          'Maison De Kolong sudah tersertifikasi halal oleh MUIs',
                                           style: TextStyle(
                                             fontSize: 10,
                                             fontWeight: FontWeight.w400,
