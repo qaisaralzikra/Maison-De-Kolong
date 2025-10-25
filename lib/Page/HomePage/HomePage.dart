@@ -343,7 +343,7 @@ class Home extends StatelessWidget {
                                           style: TextStyle(fontSize: 11),
                                         ),
                                         TextSpan(
-                                          text: '30 Days',
+                                          text: '28 Days',
                                           style: TextStyle(
                                             fontWeight: FontWeight.bold,
                                             fontSize: 11,
