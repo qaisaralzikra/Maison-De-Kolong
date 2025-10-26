@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:mainson_de_kolong/Page/Autentication/ForgotPassword.dart';
 import 'package:mainson_de_kolong/Page/Autentication/Registrasi.dart';
 import 'package:remixicon/remixicon.dart';
 
@@ -86,7 +87,10 @@ class _LoginState extends State<Login> {
           child: Text(
             'We Say Hello!',
             style: GoogleFonts.montserrat(
-              textStyle: const TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
+              textStyle: const TextStyle(
+                fontSize: 28,
+                fontWeight: FontWeight.bold,
+              ),
             ),
           ),
         ),
@@ -98,7 +102,10 @@ class _LoginState extends State<Login> {
             'Welcome Back, Use Your Email and Password to Log In',
             textAlign: TextAlign.center,
             style: GoogleFonts.montserrat(
-              textStyle: const TextStyle(fontSize: 14, fontWeight: FontWeight.w400),
+              textStyle: const TextStyle(
+                fontSize: 14,
+                fontWeight: FontWeight.w400,
+              ),
             ),
           ),
         ),
@@ -208,23 +215,28 @@ class _LoginState extends State<Login> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Container(alignment: Alignment.centerLeft, child: RememberMeWidget()),
+                    Container(
+                      alignment: Alignment.centerLeft,
+                      child: RememberMeWidget(),
+                    ),
                     Container(
                       alignment: Alignment.centerLeft,
                       child: ElevatedButton(
                         style: ElevatedButton.styleFrom(
-                          elevation: 0,
-                          backgroundColor: const Color(0xff001EFF).withOpacity(0.6),
-                          shadowColor: Colors.white,
-                          splashFactory: NoSplash.splashFactory,
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(8),
-                          ),
-                          padding:
-                              const EdgeInsets.symmetric(horizontal: 10, vertical: 0),
+                          elevation: 0, // tanpa bayangan
+                          backgroundColor:
+                              Colors.white, // tanpa warna background
+                          shadowColor:
+                              Colors.white, // pastikan tidak ada efek shadow
+                          splashFactory: NoSplash
+                              .splashFactory, // hilangkan efek klik ripple
+                          padding: EdgeInsets.zero, // rapikan padding
                         ),
                         onPressed: () {
-                          Navigator.pushNamed(context, '/halamanTujuan');
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => Forgot()),
+                          );
                         },
                         child: const Text(
                           'Fotgot Password',
@@ -250,7 +262,10 @@ class _LoginState extends State<Login> {
                 },
                 child: Container(
                   margin: const EdgeInsets.only(top: 30),
-                  padding: const EdgeInsets.symmetric(vertical: 6, horizontal: 80),
+                  padding: const EdgeInsets.symmetric(
+                    vertical: 6,
+                    horizontal: 80,
+                  ),
                   decoration: BoxDecoration(
                     color: const Color(0xff001EFF),
                     borderRadius: BorderRadius.circular(10),
@@ -275,7 +290,10 @@ class _LoginState extends State<Login> {
                   children: [
                     const Text(
                       'Or Login With',
-                      style: TextStyle(fontWeight: FontWeight.w500, fontSize: 14),
+                      style: TextStyle(
+                        fontWeight: FontWeight.w500,
+                        fontSize: 14,
+                      ),
                     ),
                     const SizedBox(height: 10),
                     SizedBox(
