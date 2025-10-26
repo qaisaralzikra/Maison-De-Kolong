@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:mainson_de_kolong/Page/HomePage/HomePage.dart';
+import 'package:mainson_de_kolong/Page/Login/Login.dart';
 import 'package:mainson_de_kolong/Page/SplashScreen/SplashScreen.dart';
 
 void main() {
@@ -24,7 +25,7 @@ class Azka extends StatelessWidget {
       initialRoute: '/',
       routes: {
         '/': (context) => Splash(),
-        '/home': (context) => const MainStack(),
+        '/home': (context) => const Login(),
       },
     );
   }
