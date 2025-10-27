@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:mainson_de_kolong/Page/About/About.dart';
 import 'package:mainson_de_kolong/Page/HomePage/HomePage.dart';
-import 'package:mainson_de_kolong/main.dart';
+import 'package:mainson_de_kolong/Page/LanguageSetting/LanguageSetting.dart';
+import 'package:mainson_de_kolong/Page/Message/KotakMasuk.dart';
+import 'package:mainson_de_kolong/Page/MetodePembayaran/MetodePembayaran.dart';
+// import 'package:mainson_de_kolong/main.dart';
 import 'package:remixicon/remixicon.dart';
 
 // void main() {
@@ -194,7 +198,7 @@ class Profil extends StatelessWidget {
                             onPressed: () {
                               Navigator.push(
                                 context,
-                                MaterialPageRoute(builder: (context) => Home()),
+                                MaterialPageRoute(builder: (context) => Message()),
                               );
                             },
                             child: Container(
@@ -290,7 +294,7 @@ class Profil extends StatelessWidget {
                             onPressed: () {
                               Navigator.push(
                                 context,
-                                MaterialPageRoute(builder: (context) => Home()),
+                                MaterialPageRoute(builder: (context) => LanguageSettingPage()),
                               );
                             },
                             child: Container(
@@ -386,7 +390,7 @@ class Profil extends StatelessWidget {
                             onPressed: () {
                               Navigator.push(
                                 context,
-                                MaterialPageRoute(builder: (context) => Home()),
+                                MaterialPageRoute(builder: (context) => Metodepembayaran()),
                               );
                             },
                             child: Container(
@@ -567,7 +571,7 @@ class Profil extends StatelessWidget {
                                     Navigator.push(
                                       context,
                                       MaterialPageRoute(
-                                        builder: (context) => Home(),
+                                        builder: (context) => About(),
                                       ),
                                     );
                                   },

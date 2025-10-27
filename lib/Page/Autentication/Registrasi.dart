@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:mainson_de_kolong/Page/Autentication/OTPPage.dart';
-import 'package:mainson_de_kolong/main.dart';
 import 'package:remixicon/remixicon.dart';
 
 class Registrasi extends StatefulWidget {

@@ -9,7 +9,6 @@ import 'package:remixicon/remixicon.dart';
 //     MaterialApp(
 //       debugShowCheckedModeBanner: false,
 //       home: Reset(),
-//       theme: ThemeData(textTheme: GoogleFonts.montserratTextTheme()),
 //     ),
 //   );
 // }
@@ -22,6 +21,7 @@ class Reset extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      theme: ThemeData(textTheme: GoogleFonts.montserratTextTheme()),
       home: Scaffold(
         backgroundColor: Colors.white,
 

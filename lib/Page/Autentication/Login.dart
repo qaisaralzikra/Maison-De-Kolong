@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:mainson_de_kolong/Page/Autentication/ForgotPassword.dart';
 import 'package:mainson_de_kolong/Page/Autentication/Registrasi.dart';
-import 'package:mainson_de_kolong/Page/HomePage/HomePage.dart';
 import 'package:mainson_de_kolong/main.dart';
 import 'package:remixicon/remixicon.dart';
 
