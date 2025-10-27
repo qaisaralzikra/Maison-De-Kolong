@@ -23,7 +23,7 @@ class Home extends StatelessWidget {
           behavior: ScrollConfiguration.of(context).copyWith(scrollbars: false),
           child: SingleChildScrollView(
             child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
                 // Begin::App Bar
                 Container(
@@ -1015,7 +1015,7 @@ class Home extends StatelessWidget {
                         child: Text(''),
                       ),
                       Container(
-                        margin: EdgeInsets.only(bottom: 60),
+                        // margin: EdgeInsets.only(bottom: 0),
                         child: ElevatedButton(
                           style: ElevatedButton.styleFrom(
                             elevation: 0, // tanpa bayangan

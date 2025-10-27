@@ -5,6 +5,7 @@ import 'package:mainson_de_kolong/main.dart';
 import 'package:remixicon/remixicon.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
   runApp(Registrasi());
 }
 

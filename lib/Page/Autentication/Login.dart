@@ -2,9 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:mainson_de_kolong/Page/Autentication/ForgotPassword.dart';
 import 'package:mainson_de_kolong/Page/Autentication/Registrasi.dart';
+import 'package:mainson_de_kolong/Page/HomePage/HomePage.dart';
+import 'package:mainson_de_kolong/main.dart';
 import 'package:remixicon/remixicon.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
   runApp(const Login());
 }
 
@@ -224,13 +227,17 @@ class _LoginState extends State<Login> {
                       child: ElevatedButton(
                         style: ElevatedButton.styleFrom(
                           elevation: 0, // tanpa bayangan
-                          backgroundColor:
-                              Colors.white, // tanpa warna background
+                          backgroundColor: Color(
+                            0xff001EFF,
+                          ).withOpacity(0.5), // tanpa warna background
                           shadowColor:
                               Colors.white, // pastikan tidak ada efek shadow
                           splashFactory: NoSplash
                               .splashFactory, // hilangkan efek klik ripple
-                          padding: EdgeInsets.zero, // rapikan padding
+                          padding: EdgeInsets.only(
+                            left: 20,
+                            right: 20,
+                          ), // rapikan padding
                         ),
                         onPressed: () {
                           Navigator.push(
@@ -255,10 +262,7 @@ class _LoginState extends State<Login> {
               // Tombol Login
               GestureDetector(
                 onTap: () {
-                  final email = emailController.text;
-                  final password = passwordController.text;
-                  print('Email: $email');
-                  print('Password: $password');
+                  Navigator.pushReplacementNamed(context, '/home');
                 },
                 child: Container(
                   margin: const EdgeInsets.only(top: 30),

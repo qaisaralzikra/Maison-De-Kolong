@@ -25,7 +25,8 @@ class Azka extends StatelessWidget {
       initialRoute: '/',
       routes: {
         '/': (context) => Splash(),
-        '/home': (context) => const Login(),
+        '/login': (context) => const Login(),
+        '/home': (context) => const MainStack(),
       },
     );
   }
