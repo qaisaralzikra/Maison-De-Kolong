@@ -141,7 +141,7 @@ class Home extends StatelessWidget {
           
                   // Begin::Kolong Poin
                   Container(
-                    margin: EdgeInsets.symmetric(vertical: 20, horizontal: 30),
+                    margin: EdgeInsets.symmetric(vertical: 20, horizontal: 20),
                     child: Row(
                       children: [
                         Container(
@@ -942,8 +942,8 @@ class Home extends StatelessWidget {
                             children: [
                               Container(
                                 margin: EdgeInsets.only(
-                                  left: 30,
-                                  right: 30,
+                                  left: 15,
+                                  right: 15,
                                   top: 20,
                                   bottom: 10,
                                 ),

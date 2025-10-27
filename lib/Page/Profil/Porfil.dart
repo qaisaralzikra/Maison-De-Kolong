@@ -31,8 +31,8 @@ class Profil extends StatelessWidget {
                     Container(
                       margin: EdgeInsets.only(
                         top: 70,
-                        left: 35,
-                        right: 35,
+                        left: 16,
+                        right: 16,
                         bottom: 40,
                       ),
                       decoration: BoxDecoration(
