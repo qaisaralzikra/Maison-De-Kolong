@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:mainson_de_kolong/Page/HomePage/HomePage.dart';
 import 'package:mainson_de_kolong/Page/Autentication/Login.dart';
+import 'package:mainson_de_kolong/Page/Profil/Porfil.dart';
 import 'package:mainson_de_kolong/Page/SplashScreen/SplashScreen.dart';
 
 void main() {
@@ -46,7 +47,7 @@ class _MainStackState extends State<MainStack> {
     Home(),
     Placeholder(),
     Home(),
-    Placeholder(),
+    Profil(),
   ];
 
   @override

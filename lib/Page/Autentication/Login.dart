@@ -6,11 +6,6 @@ import 'package:mainson_de_kolong/Page/HomePage/HomePage.dart';
 import 'package:mainson_de_kolong/main.dart';
 import 'package:remixicon/remixicon.dart';
 
-void main() {
-  WidgetsFlutterBinding.ensureInitialized();
-  runApp(const Login());
-}
-
 class Login extends StatefulWidget {
   const Login({super.key});
 
@@ -262,7 +257,7 @@ class _LoginState extends State<Login> {
               // Tombol Login
               GestureDetector(
                 onTap: () {
-                  Navigator.pushReplacementNamed(context, '/home');
+                  Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => MainStack()));
                 },
                 child: Container(
                   margin: const EdgeInsets.only(top: 30),
