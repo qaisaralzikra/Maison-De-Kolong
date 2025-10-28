@@ -5,19 +5,30 @@ import 'package:mainson_de_kolong/Page/HomePage/HomePage.dart';
 import 'package:mainson_de_kolong/Page/LanguageSetting/LanguageSetting.dart';
 import 'package:mainson_de_kolong/Page/Message/KotakMasuk.dart';
 import 'package:mainson_de_kolong/Page/MetodePembayaran/MetodePembayaran.dart';
-// import 'package:mainson_de_kolong/main.dart';
+import 'package:url_launcher/url_launcher.dart';
 import 'package:remixicon/remixicon.dart';
 
-// void main() {
-//   runApp(
-//     MaterialApp(
-//       home: Profil(),
-//     ),
-//   );
-// }
-
-class Profil extends StatelessWidget {
+class Profil extends StatefulWidget {
   const Profil({super.key});
+
+  @override
+  State<Profil> createState() => _ProfilState();
+}
+
+class _ProfilState extends State<Profil> {
+  Future<void> whatsAppOpen() async {
+    const phoneNumber = '6285399205213';
+    const message =
+        'Halo, saya ingin bertanya mengenai layanan Maison De Kolong.';
+    final Uri url = Uri.parse(
+      'https://wa.me/$phoneNumber?text=${Uri.encodeComponent(message)}',
+    );
+
+    if (!await launchUrl(url, mode: LaunchMode.externalApplication)) {
+      throw Exception('Gagal membuka WhatsApp');
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -51,7 +62,10 @@ class Profil extends StatelessWidget {
                           ),
                         ],
                       ),
-                      padding: EdgeInsets.symmetric(vertical: 20, horizontal: 20),
+                      padding: EdgeInsets.symmetric(
+                        vertical: 20,
+                        horizontal: 20,
+                      ),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
@@ -93,7 +107,8 @@ class Profil extends StatelessWidget {
                                 SizedBox(width: 10),
                                 Container(
                                   child: Column(
-                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
                                     children: [
                                       Text(
                                         'KOLONG POINT',
@@ -128,14 +143,15 @@ class Profil extends StatelessWidget {
                                                 '0',
                                                 style: TextStyle(
                                                   fontSize: 24,
-                                                  color: Colors
-                                                      .white, // wajib ada tapi tidak berpengaruh
+                                                  color: Colors.white,
                                                   fontWeight: FontWeight.bold,
                                                 ),
                                               ),
                                             ),
                                             Container(
-                                              padding: EdgeInsets.only(bottom: 5),
+                                              padding: EdgeInsets.only(
+                                                bottom: 5,
+                                              ),
                                               child: Text(
                                                 'PTS',
                                                 style: TextStyle(
@@ -168,8 +184,14 @@ class Profil extends StatelessWidget {
                       ),
                     ),
                     Container(
-                      padding: EdgeInsets.symmetric(vertical: 15, horizontal: 15),
-                      margin: EdgeInsets.symmetric(horizontal: 35, vertical: 15),
+                      padding: EdgeInsets.symmetric(
+                        vertical: 15,
+                        horizontal: 15,
+                      ),
+                      margin: EdgeInsets.symmetric(
+                        horizontal: 35,
+                        vertical: 15,
+                      ),
                       decoration: BoxDecoration(
                         color: Colors.white,
                         borderRadius: BorderRadius.circular(10),
@@ -186,24 +208,24 @@ class Profil extends StatelessWidget {
                         children: [
                           ElevatedButton(
                             style: ElevatedButton.styleFrom(
-                              elevation: 0, // tanpa bayangan
-                              backgroundColor:
-                                  Colors.transparent, // tanpa warna background
-                              shadowColor: Colors
-                                  .transparent, // pastikan tidak ada efek shadow
-                              splashFactory: NoSplash
-                                  .splashFactory, // hilangkan efek klik ripple
-                              padding: EdgeInsets.zero, // rapikan padding
+                              elevation: 0,
+                              backgroundColor: Colors.transparent,
+                              shadowColor: Colors.transparent,
+                              splashFactory: NoSplash.splashFactory,
+                              padding: EdgeInsets.zero,
                             ),
                             onPressed: () {
                               Navigator.push(
                                 context,
-                                MaterialPageRoute(builder: (context) => Message()),
+                                MaterialPageRoute(
+                                  builder: (context) => Message(),
+                                ),
                               );
                             },
                             child: Container(
                               child: Row(
-                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
                                 children: [
                                   Row(
                                     children: [
@@ -234,14 +256,11 @@ class Profil extends StatelessWidget {
                           SizedBox(height: 10),
                           ElevatedButton(
                             style: ElevatedButton.styleFrom(
-                              elevation: 0, // tanpa bayangan
-                              backgroundColor:
-                                  Colors.transparent, // tanpa warna background
-                              shadowColor: Colors
-                                  .transparent, // pastikan tidak ada efek shadow
-                              splashFactory: NoSplash
-                                  .splashFactory, // hilangkan efek klik ripple
-                              padding: EdgeInsets.zero, // rapikan padding
+                              elevation: 0,
+                              backgroundColor: Colors.transparent,
+                              shadowColor: Colors.transparent,
+                              splashFactory: NoSplash.splashFactory,
+                              padding: EdgeInsets.zero,
                             ),
                             onPressed: () {
                               Navigator.push(
@@ -251,7 +270,8 @@ class Profil extends StatelessWidget {
                             },
                             child: Container(
                               child: Row(
-                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
                                 children: [
                                   Row(
                                     children: [
@@ -282,24 +302,24 @@ class Profil extends StatelessWidget {
                           SizedBox(height: 10),
                           ElevatedButton(
                             style: ElevatedButton.styleFrom(
-                              elevation: 0, // tanpa bayangan
-                              backgroundColor:
-                                  Colors.transparent, // tanpa warna background
-                              shadowColor: Colors
-                                  .transparent, // pastikan tidak ada efek shadow
-                              splashFactory: NoSplash
-                                  .splashFactory, // hilangkan efek klik ripple
-                              padding: EdgeInsets.zero, // rapikan padding
+                              elevation: 0,
+                              backgroundColor: Colors.transparent,
+                              shadowColor: Colors.transparent,
+                              splashFactory: NoSplash.splashFactory,
+                              padding: EdgeInsets.zero,
                             ),
                             onPressed: () {
                               Navigator.push(
                                 context,
-                                MaterialPageRoute(builder: (context) => LanguageSettingPage()),
+                                MaterialPageRoute(
+                                  builder: (context) => LanguageSettingPage(),
+                                ),
                               );
                             },
                             child: Container(
                               child: Row(
-                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
                                 children: [
                                   Row(
                                     children: [
@@ -330,14 +350,11 @@ class Profil extends StatelessWidget {
                           SizedBox(height: 10),
                           ElevatedButton(
                             style: ElevatedButton.styleFrom(
-                              elevation: 0, // tanpa bayangan
-                              backgroundColor:
-                                  Colors.transparent, // tanpa warna background
-                              shadowColor: Colors
-                                  .transparent, // pastikan tidak ada efek shadow
-                              splashFactory: NoSplash
-                                  .splashFactory, // hilangkan efek klik ripple
-                              padding: EdgeInsets.zero, // rapikan padding
+                              elevation: 0,
+                              backgroundColor: Colors.transparent,
+                              shadowColor: Colors.transparent,
+                              splashFactory: NoSplash.splashFactory,
+                              padding: EdgeInsets.zero,
                             ),
                             onPressed: () {
                               Navigator.push(
@@ -347,7 +364,8 @@ class Profil extends StatelessWidget {
                             },
                             child: Container(
                               child: Row(
-                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
                                 children: [
                                   Row(
                                     children: [
@@ -378,24 +396,24 @@ class Profil extends StatelessWidget {
                           SizedBox(height: 10),
                           ElevatedButton(
                             style: ElevatedButton.styleFrom(
-                              elevation: 0, // tanpa bayangan
-                              backgroundColor:
-                                  Colors.transparent, // tanpa warna background
-                              shadowColor: Colors
-                                  .transparent, // pastikan tidak ada efek shadow
-                              splashFactory: NoSplash
-                                  .splashFactory, // hilangkan efek klik ripple
-                              padding: EdgeInsets.zero, // rapikan padding
+                              elevation: 0,
+                              backgroundColor: Colors.transparent,
+                              shadowColor: Colors.transparent,
+                              splashFactory: NoSplash.splashFactory,
+                              padding: EdgeInsets.zero,
                             ),
                             onPressed: () {
                               Navigator.push(
                                 context,
-                                MaterialPageRoute(builder: (context) => Metodepembayaran()),
+                                MaterialPageRoute(
+                                  builder: (context) => Metodepembayaran(),
+                                ),
                               );
                             },
                             child: Container(
                               child: Row(
-                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
                                 children: [
                                   Row(
                                     children: [
@@ -466,23 +484,13 @@ class Profil extends StatelessWidget {
                               children: [
                                 ElevatedButton(
                                   style: ElevatedButton.styleFrom(
-                                    elevation: 0, // tanpa bayangan
-                                    backgroundColor: Colors
-                                        .transparent, // tanpa warna background
-                                    shadowColor: Colors
-                                        .transparent, // pastikan tidak ada efek shadow
-                                    splashFactory: NoSplash
-                                        .splashFactory, // hilangkan efek klik ripple
-                                    padding: EdgeInsets.zero, // rapikan padding
+                                    elevation: 0,
+                                    backgroundColor: Colors.transparent,
+                                    shadowColor: Colors.transparent,
+                                    splashFactory: NoSplash.splashFactory,
+                                    padding: EdgeInsets.zero,
                                   ),
-                                  onPressed: () {
-                                    Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                        builder: (context) => Home(),
-                                      ),
-                                    );
-                                  },
+                                  onPressed: whatsAppOpen, // 👈 Ganti ini saja
                                   child: Container(
                                     child: Row(
                                       mainAxisAlignment:
@@ -512,14 +520,11 @@ class Profil extends StatelessWidget {
                                 SizedBox(height: 10),
                                 ElevatedButton(
                                   style: ElevatedButton.styleFrom(
-                                    elevation: 0, // tanpa bayangan
-                                    backgroundColor: Colors
-                                        .transparent, // tanpa warna background
-                                    shadowColor: Colors
-                                        .transparent, // pastikan tidak ada efek shadow
-                                    splashFactory: NoSplash
-                                        .splashFactory, // hilangkan efek klik ripple
-                                    padding: EdgeInsets.zero, // rapikan padding
+                                    elevation: 0,
+                                    backgroundColor: Colors.transparent,
+                                    shadowColor: Colors.transparent,
+                                    splashFactory: NoSplash.splashFactory,
+                                    padding: EdgeInsets.zero,
                                   ),
                                   onPressed: () {
                                     Navigator.push(
@@ -558,14 +563,11 @@ class Profil extends StatelessWidget {
                                 SizedBox(height: 10),
                                 ElevatedButton(
                                   style: ElevatedButton.styleFrom(
-                                    elevation: 0, // tanpa bayangan
-                                    backgroundColor: Colors
-                                        .transparent, // tanpa warna background
-                                    shadowColor: Colors
-                                        .transparent, // pastikan tidak ada efek shadow
-                                    splashFactory: NoSplash
-                                        .splashFactory, // hilangkan efek klik ripple
-                                    padding: EdgeInsets.zero, // rapikan padding
+                                    elevation: 0,
+                                    backgroundColor: Colors.transparent,
+                                    shadowColor: Colors.transparent,
+                                    splashFactory: NoSplash.splashFactory,
+                                    padding: EdgeInsets.zero,
                                   ),
                                   onPressed: () {
                                     Navigator.push(
