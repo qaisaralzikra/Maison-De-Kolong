@@ -1,10 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
+import 'package:mainson_de_kolong/Page/DetailOrderPage/DetailOrder.dart';
 import 'package:mainson_de_kolong/Page/HomePage/HomePage.dart';
+<<<<<<< HEAD
+import 'package:mainson_de_kolong/Page/PromoPage/PromoPage.dart';
+=======
 import 'package:mainson_de_kolong/Page/Autentication/Login.dart';
 import 'package:mainson_de_kolong/Page/Profil/Porfil.dart';
 import 'package:mainson_de_kolong/Page/Reedem%20Voucher/ReedemVoucher.dart';
 import 'package:mainson_de_kolong/Page/SplashScreen/SplashScreen.dart';
+>>>>>>> 7781fc8fb343ecf7886142776719f272a7ffb68f
 
 void main() {
   runApp(const Azka());
@@ -46,9 +51,15 @@ class _MainStackState extends State<MainStack> {
 
   final List<Widget> _pages = const [
     Home(),
+<<<<<<< HEAD
+    DetailOrder(),
+    PromoPage(),
+    Placeholder(),
+=======
     Placeholder(),
     Reedemvoucher(),
     Profil(),
+>>>>>>> 7781fc8fb343ecf7886142776719f272a7ffb68f
   ];
 
   @override
@@ -61,7 +72,14 @@ class _MainStackState extends State<MainStack> {
       body: IndexedStack(index: _page, children: _pages),
 
       bottomNavigationBar: Container(
+<<<<<<< HEAD
+        decoration: const BoxDecoration(
+          color: Colors.transparent,
+
+        ),
+=======
         decoration: const BoxDecoration(color: Colors.transparent),
+>>>>>>> 7781fc8fb343ecf7886142776719f272a7ffb68f
         child: CurvedNavigationBar(
           index: _page,
           height: 60,
@@ -92,3 +110,4 @@ class _MainStackState extends State<MainStack> {
     );
   }
 }
+
