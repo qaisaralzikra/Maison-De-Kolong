@@ -2,7 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:mainson_de_kolong/Page/DetailOrderPage/DetailOrder.dart';
 import 'package:mainson_de_kolong/Page/HomePage/HomePage.dart';
+<<<<<<< HEAD
 import 'package:mainson_de_kolong/Page/PromoPage/PromoPage.dart';
+=======
+import 'package:mainson_de_kolong/Page/Autentication/Login.dart';
+import 'package:mainson_de_kolong/Page/Profil/Porfil.dart';
+import 'package:mainson_de_kolong/Page/Reedem%20Voucher/ReedemVoucher.dart';
+import 'package:mainson_de_kolong/Page/SplashScreen/SplashScreen.dart';
+>>>>>>> 7781fc8fb343ecf7886142776719f272a7ffb68f
 
 void main() {
   runApp(const Azka());
@@ -21,7 +28,13 @@ class Azka extends StatelessWidget {
           seedColor: const Color.fromRGBO(159, 221, 14, 1),
         ),
       ),
-      home: const MainStack(),
+      // 👉 atur route di sini saja
+      initialRoute: '/',
+      routes: {
+        '/': (context) => Splash(),
+        '/login': (context) => const Login(),
+        '/home': (context) => const MainStack(),
+      },
     );
   }
 }
@@ -38,9 +51,15 @@ class _MainStackState extends State<MainStack> {
 
   final List<Widget> _pages = const [
     Home(),
+<<<<<<< HEAD
     DetailOrder(),
     PromoPage(),
     Placeholder(),
+=======
+    Placeholder(),
+    Reedemvoucher(),
+    Profil(),
+>>>>>>> 7781fc8fb343ecf7886142776719f272a7ffb68f
   ];
 
   @override
@@ -53,10 +72,14 @@ class _MainStackState extends State<MainStack> {
       body: IndexedStack(index: _page, children: _pages),
 
       bottomNavigationBar: Container(
+<<<<<<< HEAD
         decoration: const BoxDecoration(
           color: Colors.transparent,
 
         ),
+=======
+        decoration: const BoxDecoration(color: Colors.transparent),
+>>>>>>> 7781fc8fb343ecf7886142776719f272a7ffb68f
         child: CurvedNavigationBar(
           index: _page,
           height: 60,
@@ -66,10 +89,14 @@ class _MainStackState extends State<MainStack> {
           animationDuration: const Duration(milliseconds: 400),
 
           items: [
-            Icon(Icons.home, size: 28, color: _page == 0 ? mainColor : inactiveColor),
-            Icon(Icons.list, size: 28, color: _page == 1 ? mainColor : inactiveColor),
-            Icon(Icons.settings, size: 28, color: _page == 2 ? mainColor : inactiveColor),
-            Icon(Icons.person, size: 28, color: _page == 3 ? mainColor : inactiveColor),
+            Icon(Icons.home,
+                size: 28, color: _page == 0 ? mainColor : inactiveColor),
+            Icon(Icons.list,
+                size: 28, color: _page == 1 ? mainColor : inactiveColor),
+            Icon(Icons.settings,
+                size: 28, color: _page == 2 ? mainColor : inactiveColor),
+            Icon(Icons.person,
+                size: 28, color: _page == 3 ? mainColor : inactiveColor),
           ],
 
           onTap: (index) {
@@ -77,7 +104,6 @@ class _MainStackState extends State<MainStack> {
               _page = index;
             });
           },
-          // ⚙️ trick: force curve to stay centered and balanced
           letIndexChange: (index) => true,
         ),
       ),
