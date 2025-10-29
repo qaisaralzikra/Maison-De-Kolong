@@ -3,6 +3,7 @@ import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:mainson_de_kolong/Page/HomePage/HomePage.dart';
 import 'package:mainson_de_kolong/Page/Autentication/Login.dart';
 import 'package:mainson_de_kolong/Page/Profil/Porfil.dart';
+import 'package:mainson_de_kolong/Page/Reedem%20Voucher/ReedemVoucher.dart';
 import 'package:mainson_de_kolong/Page/SplashScreen/SplashScreen.dart';
 
 void main() {
@@ -46,7 +47,7 @@ class _MainStackState extends State<MainStack> {
   final List<Widget> _pages = const [
     Home(),
     Placeholder(),
-    Home(),
+    Reedemvoucher(),
     Profil(),
   ];
 
