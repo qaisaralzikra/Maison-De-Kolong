@@ -1,10 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:remixicon/remixicon.dart';
 
-void main() {
-  runApp(Home());
-}
-
 class Home extends StatelessWidget {
   const Home({super.key});
 
@@ -343,7 +339,7 @@ class Home extends StatelessWidget {
                                           style: TextStyle(fontSize: 11),
                                         ),
                                         TextSpan(
-                                          text: '28 Days',
+                                          text: '30 Days',
                                           style: TextStyle(
                                             fontWeight: FontWeight.bold,
                                             fontSize: 11,
@@ -1193,7 +1189,7 @@ class Home extends StatelessWidget {
                                       ),
                                       Container(
                                         child: Text(
-                                          'Maison De Kolong sudah tersertifikasi halal oleh MUIs',
+                                          'Maison De Kolong sudah tersertifikasi halal oleh MUI',
                                           style: TextStyle(
                                             fontSize: 10,
                                             fontWeight: FontWeight.w400,
