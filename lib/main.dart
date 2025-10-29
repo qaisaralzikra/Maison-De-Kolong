@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
+import 'package:mainson_de_kolong/Page/DetailOrderPage/DetailOrder.dart';
 import 'package:mainson_de_kolong/Page/HomePage/HomePage.dart';
+import 'package:mainson_de_kolong/Page/PromoPage/PromoPage.dart';
 
 void main() {
   runApp(const Azka());
@@ -36,8 +38,8 @@ class _MainStackState extends State<MainStack> {
 
   final List<Widget> _pages = const [
     Home(),
-    Placeholder(),
-    Home(),
+    DetailOrder(),
+    PromoPage(),
     Placeholder(),
   ];
 
@@ -53,7 +55,7 @@ class _MainStackState extends State<MainStack> {
       bottomNavigationBar: Container(
         decoration: const BoxDecoration(
           color: Colors.transparent,
-          
+
         ),
         child: CurvedNavigationBar(
           index: _page,
@@ -82,3 +84,4 @@ class _MainStackState extends State<MainStack> {
     );
   }
 }
+
