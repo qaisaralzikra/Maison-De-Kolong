@@ -187,7 +187,6 @@ class Home extends StatelessWidget {
                                             ),
                                           ),
                                         ),
-<<<<<<< HEAD
                                         SizedBox(height: 5),
                                         Container(
                                           child: Text(
@@ -196,13 +195,13 @@ class Home extends StatelessWidget {
                                               fontSize: 9,
                                               fontWeight: FontWeight.w400,
                                             ),
-=======
-                                        TextSpan(
-                                          text: '30 Days',
+                                          )
+                                        ),
+                                        Text(
+                                          '30 Days',
                                           style: TextStyle(
                                             fontWeight: FontWeight.bold,
                                             fontSize: 11,
->>>>>>> 7781fc8fb343ecf7886142776719f272a7ffb68f
                                           ),
                                         ),
                                       ],
@@ -1188,7 +1187,6 @@ class Home extends StatelessWidget {
                                             ),
                                           ),
                                         ),
-<<<<<<< HEAD
                                         Container(
                                           child: Text(
                                             'Maison De Kolong sudah tersertifikasi halal oleh MUI',
@@ -1199,18 +1197,6 @@ class Home extends StatelessWidget {
                                                 0xff000000,
                                               ).withOpacity(0.6),
                                             ),
-=======
-                                      ),
-                                      Container(
-                                        child: Text(
-                                          'Maison De Kolong sudah tersertifikasi halal oleh MUI',
-                                          style: TextStyle(
-                                            fontSize: 10,
-                                            fontWeight: FontWeight.w400,
-                                            color: Color(
-                                              0xff000000,
-                                            ).withOpacity(0.6),
->>>>>>> 7781fc8fb343ecf7886142776719f272a7ffb68f
                                           ),
                                         ),
                                       ],
