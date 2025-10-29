@@ -364,21 +364,28 @@ class PromoPage extends StatelessWidget {
               ),
               
               // Tukar Button
-              Container(
-                padding: const EdgeInsets.symmetric(
-                  horizontal: 18,
-                  vertical: 6,
-                ),
-                decoration: BoxDecoration(
-                  color: const Color(0xFFFF66BA),
-                  borderRadius: BorderRadius.circular(20),
-                ),
-                child: Text(
-                  'Tukar',
-                  style: GoogleFonts.montserrat(
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold,
-                    fontSize: 10,
+              GestureDetector(
+                onTap: () {
+                  Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => DetailPromoPage()));
+                },
+                child: (
+                  Container(
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 18,
+                      vertical: 6,
+                    ),
+                    decoration: BoxDecoration(
+                      color: const Color(0xFFFF66BA),
+                      borderRadius: BorderRadius.circular(20),
+                    ),
+                    child: Text(
+                      'Tukar',
+                      style: GoogleFonts.montserrat(
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 10,
+                      ),
+                    ),
                   ),
                 ),
               ),
