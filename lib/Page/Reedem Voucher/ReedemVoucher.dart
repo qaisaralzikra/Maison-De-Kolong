@@ -199,9 +199,10 @@ class _ReedemvoucherState extends State<Reedemvoucher> {
                               ),
                               Text(
                                 'REWARD',
-                                style: TextStyle(
+                                style: GoogleFonts.montserrat(
                                   fontSize: 24,
                                   fontWeight: FontWeight.bold,
+                                  letterSpacing: 1,
                                 ),
                               ),
                             ],

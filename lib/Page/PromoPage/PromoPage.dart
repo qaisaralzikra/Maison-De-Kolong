@@ -274,7 +274,7 @@ class PromoPage extends StatelessWidget {
                 ),
               ),
               Image.asset(
-                '/Users/user/Maison-De-Kolong/assets/image/logo_maison_de_kolong.png',
+                'assets/image/logo_maison_de_kolong.png',
                 width: 35,
                 height: 35,
               ),
