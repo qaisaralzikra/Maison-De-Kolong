@@ -1228,14 +1228,14 @@ class Home extends StatelessWidget {
           
           // Kotak Ungu Fixed di Bawah
           Positioned(
-            bottom: 70,
+            bottom: 0,
             left: 0,
             right: 0,
             child: Container(
               margin: EdgeInsets.all(15),
               padding: EdgeInsets.symmetric(
                 horizontal: 20,
-                vertical: 15,
+                vertical: 5,
               ),
               decoration: BoxDecoration(
                 color: Color(0xff4359FF),
@@ -1244,22 +1244,28 @@ class Home extends StatelessWidget {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text(
-                    '1 Produk',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 16,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
+                  Column (
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        '1 Produk',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 9,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
                   Text(
                     'Rp. 20.000',
                     style: TextStyle(
                       color: Colors.white,
-                      fontSize: 16,
+                      fontSize: 12,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
+                    ]
+                  ),
+                  
                   Container(
                     width: 32,
                     height: 32,
@@ -1270,7 +1276,7 @@ class Home extends StatelessWidget {
                     child: Icon(
                       RemixIcons.arrow_right_circle_fill,
                       color: Colors.white,
-                      size: 28,
+                      size: 23,
                     ),
                   ),
                 ],
