@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:mainson_de_kolong/Page/About/About.dart';
+import 'package:mainson_de_kolong/Page/HistoryPage/History.dart';
 import 'package:mainson_de_kolong/Page/HomePage/HomePage.dart';
 import 'package:mainson_de_kolong/Page/LanguageSetting/LanguageSetting.dart';
 import 'package:mainson_de_kolong/Page/Message/KotakMasuk.dart';
@@ -359,7 +360,7 @@ class _ProfilState extends State<Profil> {
                             onPressed: () {
                               Navigator.push(
                                 context,
-                                MaterialPageRoute(builder: (context) => Home()),
+                                MaterialPageRoute(builder: (context) => History()),
                               );
                             },
                             child: Container(
