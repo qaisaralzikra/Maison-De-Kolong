@@ -236,7 +236,7 @@ class _HomeState extends State<Home> {
                                           color: Color(0xff4359FF),
                                         ),
                                         Text(
-                                          'Takeaway',
+                                          'Pick Up',
                                           style: TextStyle(fontSize: 10),
                                         ),
                                       ],
@@ -252,7 +252,7 @@ class _HomeState extends State<Home> {
                                           color: Color(0xff7FFF43),
                                         ),
                                         Text(
-                                          'Dine In',
+                                          'Takeaway',
                                           style: TextStyle(fontSize: 10),
                                         ),
                                       ],
@@ -1398,121 +1398,81 @@ class _HomeState extends State<Home> {
               ),
 
               // Kotak Ungu Fixed di Bawah
+              Container(
+                width: 32,
+                height: 32,
+                decoration: BoxDecoration(
+                  color: Colors.white.withOpacity(0.2),
+                  shape: BoxShape.circle,
+                ),
+                child: Icon(
+                  RemixIcons.arrow_right_circle_fill,
+                  color: Colors.white,
+                  size: 23,
+                ),
+              ),
+
+              // Kotak Ungu Fixed di Bawah - SEKARANG DENGAN FUNGSI KLIK
               Positioned(
                 bottom: 0,
                 left: 0,
                 right: 0,
-                child: Container(
-                  margin: EdgeInsets.all(15),
-                  padding: EdgeInsets.symmetric(horizontal: 20, vertical: 5),
-                  decoration: BoxDecoration(
-                    color: Color(0xff4359FF),
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            '1 Produk',
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 9,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                          Text(
-                            'Rp. 20.000',
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 12,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                        ],
-                      ),
-
-                      Container(
-                        width: 32,
-                        height: 32,
-                        decoration: BoxDecoration(
-                          color: Colors.white.withOpacity(0.2),
-                          shape: BoxShape.circle,
-                        ),
-                        child: Icon(
-                          RemixIcons.arrow_right_circle_fill,
-                          color: Colors.white,
-                          size: 23,
-            ),
-          ),
-          
-          // Kotak Ungu Fixed di Bawah - SEKARANG DENGAN FUNGSI KLIK
-          Positioned(
-            bottom: 0,
-            left: 0,
-            right: 0,
-            child: GestureDetector(
-              onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => ChartPage(),
-                  ),
-                );
-              },
-              child: Container(
-                margin: EdgeInsets.all(15),
-                padding: EdgeInsets.symmetric(
-                  horizontal: 20,
-                  vertical: 5,
-                ),
-                decoration: BoxDecoration(
-                  color: Color(0xff4359FF),
-                  borderRadius: BorderRadius.circular(10),
-                ),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Column (
-                      crossAxisAlignment: CrossAxisAlignment.start,
+                child: GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => ChartPage()),
+                    );
+                  },
+                  child: Container(
+                    margin: EdgeInsets.all(15),
+                    padding: EdgeInsets.symmetric(horizontal: 20, vertical: 8),
+                    decoration: BoxDecoration(
+                      color: Color(0xff4359FF),
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Text(
-                          '1 Produk',
-                          style: TextStyle(
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              '1 Produk',
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 12,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                            SizedBox(height: 3,),
+                            Text(
+                              'Rp. 20.000',
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 14,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ],
+                        ),
+
+                        Container(
+                          width: 32,
+                          height: 32,
+                          decoration: BoxDecoration(
+                            color: Colors.white.withOpacity(0.2),
+                            shape: BoxShape.circle,
+                          ),
+                          child: Icon(
+                            RemixIcons.arrow_right_circle_fill,
                             color: Colors.white,
-                            fontSize: 9,
-                            fontWeight: FontWeight.bold,
+                            size: 23,
                           ),
                         ),
-                    Text(
-                      'Rp. 20.000',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 12,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
-                    ),
-                      ]
-                    ),
-                    
-                    Container(
-                      width: 32,
-                      height: 32,
-                      decoration: BoxDecoration(
-                        color: Colors.white.withOpacity(0.2),
-                        shape: BoxShape.circle,
-                      ),
-                      child: Icon(
-                        RemixIcons.arrow_right_circle_fill,
-                        color: Colors.white,
-                        size: 23,
-                      ),
-                    ),
-                  ],
                 ),
               ),
             ],
