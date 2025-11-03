@@ -87,14 +87,14 @@ class _DetailOrderState extends State<DetailOrder> {
                                 Text(
                                   'Kopi Kolong',
                                   style: GoogleFonts.montserrat(
-                                    fontSize: 13,
+                                    fontSize: 16,
                                     fontWeight: FontWeight.bold,
                                   ),
                                 ),
                                 Text(
                                   'Rp. ${basePrice.toString().replaceAllMapped(RegExp(r'(\d{1,3})(?=(\d{3})+(?!\d))'), (Match m) => '${m[1]}.')}',
                                   style: GoogleFonts.montserrat(
-                                    fontSize: 10,
+                                    fontSize: 14,
                                     fontWeight: FontWeight.bold,
                                   ),
                                 ),
@@ -104,7 +104,7 @@ class _DetailOrderState extends State<DetailOrder> {
                             Text(
                               'Perpaduan Espresso, Susu Kental Manis, dengan Bahan langsung dari Resep Maison de Kolong ditambah Fresh Milk yang buat Kopi Creamy',
                               style: GoogleFonts.montserrat(
-                                fontSize: 6,
+                                fontSize: 10,
                                 color: Colors.black87,
                                 height: 1.5,
                               ),
@@ -287,7 +287,7 @@ class _DetailOrderState extends State<DetailOrder> {
         Text(
           title,
           style: GoogleFonts.montserrat(
-            fontSize: 10,
+            fontSize: 14,
             fontWeight: FontWeight.bold,
           ),
         ),
@@ -295,7 +295,7 @@ class _DetailOrderState extends State<DetailOrder> {
         Text(
           subtitle,
           style: GoogleFonts.montserrat(
-            fontSize: 10,
+            fontSize: 12,
             color: Colors.black54,
           ),
         ),
@@ -333,7 +333,7 @@ class _DetailOrderState extends State<DetailOrder> {
             Text(
               label,
               style: GoogleFonts.montserrat(
-                fontSize: 10,
+                fontSize: 12,
                 fontWeight: FontWeight.w600,
                 color: isSelected ? const Color(0xFFFF0087) : Colors.black,
               ),
