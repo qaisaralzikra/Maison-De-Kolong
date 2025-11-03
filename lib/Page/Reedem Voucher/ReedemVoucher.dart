@@ -146,7 +146,7 @@ class _ReedemvoucherState extends State<Reedemvoucher> {
                                                   ),
                                                 ),
                                             child: const Text(
-                                              '0',
+                                              '20',
                                               style: TextStyle(
                                                 fontSize: 24,
                                                 color: Colors.white,
