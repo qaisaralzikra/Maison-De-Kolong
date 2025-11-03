@@ -1,8 +1,126 @@
+import 'dart:async' as dart_async;
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:remixicon/remixicon.dart';
+import 'package:flutter/services.dart';
 
-class Home extends StatelessWidget {
+class Home extends StatefulWidget {
   const Home({super.key});
+
+  @override
+  State<Home> createState() => _HomeState();
+}
+
+class _HomeState extends State<Home> {
+  dart_async.Timer? _timer;
+
+  @override
+  void initState() {
+    super.initState();
+    _startAutoCheck();
+  }
+
+  void _startAutoCheck() {
+    // periodic check
+    _timer = dart_async.Timer.periodic(const Duration(minutes: 1), (t) {
+      _checkStoreStatus();
+    });
+
+    // Jalankan sekali setelah frame pertama selesai
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      _checkStoreStatus();
+    });
+  }
+
+  void _checkStoreStatus() {
+    final hour = DateTime.now().hour;
+    final storeClosed = (hour >= 22 || hour < 8);
+
+    if (storeClosed) {
+      _showStoreClosedModal();
+    }
+  }
+
+  bool _isModalShown = false;
+
+  void _showStoreClosedModal() {
+    if (_isModalShown) return;
+    _isModalShown = true;
+
+    showModalBottomSheet(
+      context: context,
+      isDismissible: false,
+      enableDrag: false,
+      builder: (context) {
+        return Container(
+          decoration: BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.only(
+              topLeft: Radius.circular(5),
+              topRight: Radius.circular(5),
+            ),
+          ),
+          padding: const EdgeInsets.all(20),
+          width: double.infinity,
+          height: 330,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              SizedBox(child: Icon(Remix.store_2_line, size: 63)),
+              SizedBox(height: 10),
+              Container(
+                width: 260,
+                child: Text(
+                  'Maaf, Store Sudah diluar Jam Operasional',
+                  style: GoogleFonts.montserrat(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 18,
+                  ),
+                  textAlign: TextAlign.center,
+                ),
+              ),
+              SizedBox(height: 10),
+              Container(
+                width: 260,
+                child: Text(
+                  'Pesanan Aplikasi ditutup 30 Menit sebelum Jam Tutup Store',
+                  style: GoogleFonts.montserrat(fontSize: 14),
+                  textAlign: TextAlign.center,
+                ),
+              ),
+              SizedBox(height: 30),
+              GestureDetector(
+                onTap: () {
+                  // Navigator.pop(context);
+                  SystemNavigator.pop();
+                },
+                child: Container(
+                  width: 228,
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    border: Border.all(width: 2, color: Color(0xffFF0087)),
+                    borderRadius: BorderRadius.circular(5),
+                  ),
+                  padding: EdgeInsets.symmetric(vertical: 10),
+                  child: Text(
+                    'Keluar Dari Aplikasi',
+                    textAlign: TextAlign.center,
+                    style: GoogleFonts.montserrat(fontWeight: FontWeight.bold),
+                  ),
+                ),
+              ),
+            ],
+          ),
+        );
+      },
+    );
+  }
+
+  @override
+  void dispose() {
+    _timer?.cancel();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -315,7 +433,7 @@ class Home extends StatelessWidget {
                       Container(
                         margin: EdgeInsets.symmetric(
                           vertical: 20,
-                          horizontal: 20,
+                          horizontal: 15,
                         ),
                         child: Row(
                           children: [
