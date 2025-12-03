@@ -98,7 +98,7 @@ class _ChartPageState extends State<ChartPage> {
                           TextSpan(
                             text: 'Store ',
                             style: GoogleFonts.montserrat(
-                              fontSize: 8,
+                              fontSize: 10,
                               fontWeight: FontWeight.normal,
                               color: Colors.black,
                             ),
@@ -106,7 +106,7 @@ class _ChartPageState extends State<ChartPage> {
                           TextSpan(
                             text: 'Maison De Kolong',
                             style: GoogleFonts.montserrat(
-                              fontSize: 8,
+                              fontSize: 10,
                               fontWeight: FontWeight.bold,
                               color: Colors.black,
                             ),
@@ -118,7 +118,7 @@ class _ChartPageState extends State<ChartPage> {
                     Text(
                       'Perumahan Dosen UNHAS, Jl. Perintis Kemerdekaan Km 8, Tamalanrea Jaya',
                       style: GoogleFonts.montserrat(
-                        fontSize: 8,
+                        fontSize: 10,
                         color: Colors.black87,
                       ),
                     ),
@@ -196,9 +196,41 @@ class _ChartPageState extends State<ChartPage> {
                             fontWeight: FontWeight.bold,
                           ),
                         ),
+                        SizedBox(height: 10),
+                        // Customization details
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              'Fresh Milk',
+                              style: GoogleFonts.montserrat(
+                                fontSize: 10,
+                                color: Colors.black87,
+                              ),
+                            ),
+                            SizedBox(height: 3),
+                            Text(
+                              'Normal Sugar',
+                              style: GoogleFonts.montserrat(
+                                fontSize: 10,
+                                color: Colors.black87,
+                              ),
+                            ),
+                            SizedBox(height: 3),
+                            Text(
+                              'Normal Ice',
+                              style: GoogleFonts.montserrat(
+                                fontSize: 10,
+                                color: Colors.black87,
+                              ),
+                            ),
+                          ],
+                        )
+
                       ],
                     ),
                   ),
+                  SizedBox(width: 10),
                   Column(
                     children: [
                       Image.asset(
@@ -299,9 +331,41 @@ class _ChartPageState extends State<ChartPage> {
                             fontWeight: FontWeight.bold,
                           ),
                         ),
+                        SizedBox(height: 10),
+                        // Customization details
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              'Fresh Milk',
+                              style: GoogleFonts.montserrat(
+                                fontSize: 10,
+                                color: Colors.black87,
+                              ),
+                            ),
+                            SizedBox(height: 3),
+                            Text(
+                              'Normal Sugar',
+                              style: GoogleFonts.montserrat(
+                                fontSize: 10,
+                                color: Colors.black87,
+                              ),
+                            ),
+                            SizedBox(height: 3),
+                            Text(
+                              'Normal Ice',
+                              style: GoogleFonts.montserrat(
+                                fontSize: 10,
+                                color: Colors.black87,
+                              ),
+                            ),
+                          ],
+                        )
+
                       ],
                     ),
                   ),
+                  SizedBox(width: 10),
                   Column(
                     children: [
                       Image.asset(

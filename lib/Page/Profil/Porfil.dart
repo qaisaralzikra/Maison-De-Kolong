@@ -6,6 +6,7 @@ import 'package:mainson_de_kolong/Page/HomePage/HomePage.dart';
 import 'package:mainson_de_kolong/Page/LanguageSetting/LanguageSetting.dart';
 import 'package:mainson_de_kolong/Page/Message/KotakMasuk.dart';
 import 'package:mainson_de_kolong/Page/MetodePembayaran/MetodePembayaran.dart';
+import 'package:mainson_de_kolong/Page/Autentication/Login.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:remixicon/remixicon.dart';
 
@@ -29,6 +30,70 @@ class _ProfilState extends State<Profil> {
       throw Exception('Gagal membuka WhatsApp');
     }
   }
+
+  // Fungsi untuk menampilkan dialog konfirmasi logout
+      Future<void> _showLogoutDialog() async {
+        return showDialog<void>(
+          context: context,
+          barrierDismissible: false, 
+          builder: (BuildContext context) {
+            return AlertDialog(
+              backgroundColor: Colors.white,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(15),
+              ),
+              title: Text(
+                'Konfirmasi Logout',
+                style: GoogleFonts.montserrat(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 18,
+                ),
+              ),
+              content: Text(
+                'Apakah Anda yakin ingin keluar dari akun?',
+                style: GoogleFonts.montserrat(fontSize: 14),
+              ),
+              actions: <Widget>[
+                TextButton(
+                  child: Text(
+                    'Tidak',
+                    style: GoogleFonts.montserrat(
+                      color: Colors.grey,
+                      fontSize: 14,
+                    ),
+                  ),
+                  onPressed: () {
+                    Navigator.of(context).pop(); 
+                  },
+                ),
+                ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Color(0xffFF0087),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(8),
+                    ),
+                  ),
+                  child: Text(
+                    'Ya, Logout',
+                    style: GoogleFonts.montserrat(
+                      color: Colors.white,
+                      fontSize: 14,
+                    ),
+                  ),
+                  onPressed: () {
+                    Navigator.of(context).pop(); 
+                    Navigator.pushAndRemoveUntil(
+                      context,
+                      MaterialPageRoute(builder: (context) => Login()),
+                      (Route<dynamic> route) => false,
+                    );
+                  },
+                ),
+              ],
+            );
+          },
+        );
+      }
 
   @override
   Widget build(BuildContext context) {
@@ -104,7 +169,7 @@ class _ProfilState extends State<Profil> {
                                     width: 32,
                                     height: 48,
                                     child: Container(
-                                      child: Image.asset('assets/image/cup.png'),
+                                      child: Image.asset('assets/image/cup_poin.png'),
                                     ),
                                   ),
                                   SizedBox(width: 10),
@@ -444,6 +509,49 @@ class _ProfilState extends State<Profil> {
                                 ),
                               ),
                             ),
+                            SizedBox(height: 10),
+                            // 👇 TOMBOL LOGOUT BARU
+                            ElevatedButton(
+                              style: ElevatedButton.styleFrom(
+                                elevation: 0,
+                                backgroundColor: Colors.transparent,
+                                shadowColor: Colors.transparent,
+                                splashFactory: NoSplash.splashFactory,
+                                padding: EdgeInsets.zero,
+                              ),
+                              onPressed: _showLogoutDialog,
+                              child: Container(
+                                child: Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Row(
+                                      children: [
+                                        Icon(
+                                          Remix.logout_box_line,
+                                          color: Color(0xffFF0000),
+                                          size: 23,
+                                        ),
+                                        SizedBox(width: 10),
+                                        Text(
+                                          'Logout',
+                                          style: TextStyle(
+                                            color: Color(0xffFF0000),
+                                            fontSize: 14,
+                                            fontWeight: FontWeight.w600,
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                    Icon(
+                                      Remix.arrow_right_s_line,
+                                      size: 30,
+                                      color: Color(0xffFF0087),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ),
                           ],
                         ),
                       ),
@@ -493,7 +601,7 @@ class _ProfilState extends State<Profil> {
                                       splashFactory: NoSplash.splashFactory,
                                       padding: EdgeInsets.zero,
                                     ),
-                                    onPressed: whatsAppOpen, // 👈 Ganti ini saja
+                                    onPressed: whatsAppOpen,
                                     child: Container(
                                       child: Row(
                                         mainAxisAlignment:

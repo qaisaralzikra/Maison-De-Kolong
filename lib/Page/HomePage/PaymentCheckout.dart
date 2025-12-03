@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:remixicon/remixicon.dart';
 import 'package:mainson_de_kolong/Page/HomePage/SelectedPaymentPage.dart';
+import 'package:mainson_de_kolong/Page/HomePage/QrisPayment.dart';
 
 class PaymentCheckout extends StatefulWidget {
   const PaymentCheckout({super.key});
@@ -680,7 +681,7 @@ class _PaymentCheckoutState extends State<PaymentCheckout> {
             ),
           ),
 
-          // Bottom Button
+          // Bottom Button - BAGIAN YANG DIUBAH
           Container(
             padding: EdgeInsets.all(15),
             decoration: BoxDecoration(
@@ -704,20 +705,35 @@ class _PaymentCheckoutState extends State<PaymentCheckout> {
                   ),
                 ),
                 onPressed: () {
-                  // Handle payment
+                  // 👇 CEK APAKAH SUDAH PILIH PAYMENT
                   if (selectedPayment.isEmpty) {
                     ScaffoldMessenger.of(context).showSnackBar(
                       SnackBar(
-                        content: Text('Silakan pilih metode pembayaran terlebih dahulu'),
+                        content: Text(
+                          'Silakan pilih metode pembayaran terlebih dahulu',
+                          style: GoogleFonts.montserrat(),
+                        ),
                         backgroundColor: Colors.red,
                       ),
                     );
+                  } else if (selectedPayment == 'QRIS') {
+                    // 👇 JIKA QRIS, NAVIGASI KE QRISPAYMENT
+                    print('Navigating to QrisPayment...');
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => QrisPayment(),
+                      ),
+                    );
                   } else {
-                    // Process payment
+                    // 👇 UNTUK PAYMENT LAIN, TAMPILKAN SNACKBAR
                     ScaffoldMessenger.of(context).showSnackBar(
                       SnackBar(
-                        content: Text('Memproses pembayaran dengan $selectedPayment'),
-                        backgroundColor: Colors.green,
+                        content: Text(
+                          'Pembayaran dengan $selectedPayment belum tersedia',
+                          style: GoogleFonts.montserrat(),
+                        ),
+                        backgroundColor: Color(0xffFF008C),
                       ),
                     );
                   }

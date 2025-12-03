@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:remixicon/remixicon.dart';
+import 'package:mainson_de_kolong/main.dart';
 import 'package:mainson_de_kolong/Page/PromoPage/DetailPromo.dart';
 
 class PromoPage extends StatefulWidget {
@@ -33,7 +34,7 @@ class _PromoPageState extends State<PromoPage> {
                     child: SizedBox(
                       width: double.infinity,
                       child: Text(
-                        'KOLONG REEDEM',
+                        'KOLONG REDEEM',
                         style: GoogleFonts.montserrat(
                           fontSize: 16,
                           fontWeight: FontWeight.bold,

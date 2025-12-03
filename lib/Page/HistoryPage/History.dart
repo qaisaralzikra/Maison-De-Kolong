@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:mainson_de_kolong/main.dart';
 import 'package:remixicon/remixicon.dart';
+import 'package:mainson_de_kolong/Page/HomePage/ChartPage.dart';
 
 class History extends StatefulWidget {
   const History({Key? key}) : super(key: key);
@@ -125,7 +126,14 @@ class _HistoryState extends State<History> {
                 ),
               ),
               ElevatedButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                    builder: (context) => ChartPage(),
+                      ),
+                    );
+                },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.green,
                   padding: const EdgeInsets.symmetric(

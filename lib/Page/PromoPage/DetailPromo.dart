@@ -12,7 +12,7 @@ class _DetailPromoPageState extends State<DetailPromoPage> {
   // ========== DATA DUMMY ==========
   // Data User
   int userPoints = 500; // Ubah nilai ini untuk testing (coba: 150, 300, 500)
-  String userName = "John Doe";
+  String userName = "Rajamoehadi";
   
   // Data Voucher
   String voucherTitle = "Kolong Calling ! Diskon 20%";
@@ -1016,7 +1016,8 @@ class SuccessRedeemPage extends StatelessWidget {
                       // Gambar karakter sukses
                       Image.asset(
                         'assets/image/succes_promo.png',
-                        height: 280,
+                        width: 159,
+                        height: 222.67,
                         // Jika gambar tidak ada, tampilkan icon
                         errorBuilder: (context, error, stackTrace) {
                           return Container(

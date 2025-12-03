@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:remixicon/remixicon.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:mainson_de_kolong/Page/DetailOrderPage/DetailOrder.dart';
 import 'package:mainson_de_kolong/Page/HistoryPage/History.dart';
 import 'package:mainson_de_kolong/Page/HomePage/HomePage.dart';
+import 'package:mainson_de_kolong/Page/PromoPage/PromoPage.dart';
 import 'package:mainson_de_kolong/Page/Autentication/Login.dart';
 import 'package:mainson_de_kolong/Page/Profil/Porfil.dart';
 import 'package:mainson_de_kolong/Page/Reedem%20Voucher/ReedemVoucher.dart';
@@ -49,7 +51,7 @@ class _MainStackState extends State<MainStack> {
   final List<Widget> _pages = const [
     Home(),
     History(),
-    DetailOrder(),
+    PromoPage(),
     Profil(),
   ];
 
@@ -78,9 +80,9 @@ class _MainStackState extends State<MainStack> {
           items: [
             Icon(Icons.home,
                 size: 28, color: _page == 0 ? mainColor : inactiveColor),
-            Icon(Icons.list,
+            Icon(Remix.store_3_fill,
                 size: 28, color: _page == 1 ? mainColor : inactiveColor),
-            Icon(Icons.settings,
+            Icon(Remix.coupon_fill,
                 size: 28, color: _page == 2 ? mainColor : inactiveColor),
             Icon(Icons.person,
                 size: 28, color: _page == 3 ? mainColor : inactiveColor),

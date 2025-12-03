@@ -3,7 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:remixicon/remixicon.dart';
 import 'package:flutter/services.dart';
-import 'ChartPage.dart';
+import 'package:mainson_de_kolong/Page/HomePage/ChartPage.dart';
+import 'package:mainson_de_kolong/Page/DetailOrderPage/DetailOrder.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -35,7 +36,7 @@ class _HomeState extends State<Home> {
 
   void _checkStoreStatus() {
     final hour = DateTime.now().hour;
-    final storeClosed = (hour >= 22 || hour < 8);
+    final storeClosed = (hour >= 24 || hour < 8);
 
     if (storeClosed) {
       _showStoreClosedModal();
@@ -92,7 +93,6 @@ class _HomeState extends State<Home> {
               SizedBox(height: 30),
               GestureDetector(
                 onTap: () {
-                  // Navigator.pop(context);
                   SystemNavigator.pop();
                 },
                 child: Container(
@@ -106,7 +106,9 @@ class _HomeState extends State<Home> {
                   child: Text(
                     'Keluar Dari Aplikasi',
                     textAlign: TextAlign.center,
-                    style: GoogleFonts.montserrat(fontWeight: FontWeight.bold),
+                    style: GoogleFonts.montserrat(
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
                 ),
               ),
@@ -123,6 +125,73 @@ class _HomeState extends State<Home> {
     super.dispose();
   }
 
+  // Helper method untuk membuat product item dengan navigasi
+  Widget _buildProductItem() {
+    return GestureDetector(
+      onTap: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => DetailOrder(),
+          ),
+        );
+      },
+      child: Container(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Row(
+              crossAxisAlignment: CrossAxisAlignment.end,
+              children: [
+                Container(
+                  padding: EdgeInsets.symmetric(
+                    vertical: 0,
+                    horizontal: 5,
+                  ),
+                  decoration: BoxDecoration(
+                    color: Color(0xffD3FF88),
+                    borderRadius: BorderRadius.circular(4),
+                  ),
+                  child: Text(
+                    'new',
+                    style: GoogleFonts.montserrat(
+                      color: Color(0xff5AF20E),
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
+                Container(
+                  child: Image(
+                    image: AssetImage('assets/image/cup.png'),
+                  ),
+                ),
+              ],
+            ),
+            SizedBox(height: 5),
+            Container(
+              child: Text(
+                'Kopi Kolong',
+                style: GoogleFonts.montserrat(
+                  fontSize: 12,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ),
+            Container(
+              child: Text(
+                'Rp.20.000',
+                style: GoogleFonts.montserrat(
+                  fontSize: 10,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -132,6 +201,7 @@ class _HomeState extends State<Home> {
         colorScheme: ColorScheme.fromSeed(
           seedColor: const Color.fromRGBO(159, 221, 14, 1),
         ),
+        textTheme: GoogleFonts.montserratTextTheme(),
       ),
       home: Scaffold(
         backgroundColor: Colors.white,
@@ -139,9 +209,9 @@ class _HomeState extends State<Home> {
           child: Stack(
             children: [
               ScrollConfiguration(
-                behavior: ScrollConfiguration.of(
-                  context,
-                ).copyWith(scrollbars: false),
+                behavior: ScrollConfiguration.of(context).copyWith(
+                  scrollbars: false,
+                ),
                 child: SingleChildScrollView(
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -165,10 +235,15 @@ class _HomeState extends State<Home> {
                               margin: EdgeInsets.only(left: 10),
                               child: Row(
                                 children: [
-                                  Text('Hai', style: TextStyle(fontSize: 12)),
+                                  Text(
+                                    'Hai',
+                                    style: GoogleFonts.montserrat(
+                                      fontSize: 12,
+                                    ),
+                                  ),
                                   Text(
                                     ', Rajamoehadis',
-                                    style: TextStyle(
+                                    style: GoogleFonts.montserrat(
                                       fontSize: 12,
                                       fontWeight: FontWeight.bold,
                                     ),
@@ -200,7 +275,7 @@ class _HomeState extends State<Home> {
                                 children: [
                                   Text(
                                     'Maison De Kolong',
-                                    style: TextStyle(
+                                    style: GoogleFonts.montserrat(
                                       fontSize: 9,
                                       fontWeight: FontWeight.bold,
                                     ),
@@ -208,7 +283,7 @@ class _HomeState extends State<Home> {
                                   SizedBox(height: 5),
                                   Text(
                                     'Perumahan Dosen UNHAS, Jl. Perintis Kemerdekaan Km 8, Tamalanrea Jaya',
-                                    style: TextStyle(
+                                    style: GoogleFonts.montserrat(
                                       fontSize: 9,
                                       fontWeight: FontWeight.w400,
                                     ),
@@ -223,7 +298,9 @@ class _HomeState extends State<Home> {
                                   Container(
                                     child: Text(
                                       'Melayani',
-                                      style: TextStyle(fontSize: 10),
+                                      style: GoogleFonts.montserrat(
+                                        fontSize: 10,
+                                      ),
                                     ),
                                   ),
                                   SizedBox(width: 10),
@@ -237,7 +314,9 @@ class _HomeState extends State<Home> {
                                         ),
                                         Text(
                                           'Pick Up',
-                                          style: TextStyle(fontSize: 10),
+                                          style: GoogleFonts.montserrat(
+                                            fontSize: 10,
+                                          ),
                                         ),
                                       ],
                                     ),
@@ -253,7 +332,9 @@ class _HomeState extends State<Home> {
                                         ),
                                         Text(
                                           'Takeaway',
-                                          style: TextStyle(fontSize: 10),
+                                          style: GoogleFonts.montserrat(
+                                            fontSize: 10,
+                                          ),
                                         ),
                                       ],
                                     ),
@@ -272,9 +353,9 @@ class _HomeState extends State<Home> {
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            const Text(
+                            Text(
                               'Khusus Pengguna Baru',
-                              style: TextStyle(
+                              style: GoogleFonts.montserrat(
                                 fontSize: 14,
                                 fontWeight: FontWeight.bold,
                               ),
@@ -311,10 +392,10 @@ class _HomeState extends State<Home> {
                                           child: Column(
                                             crossAxisAlignment:
                                                 CrossAxisAlignment.start,
-                                            children: const [
+                                            children: [
                                               Text(
                                                 'Pakai di App',
-                                                style: TextStyle(
+                                                style: GoogleFonts.montserrat(
                                                   color: Colors.blue,
                                                   fontSize: 12,
                                                   fontWeight: FontWeight.bold,
@@ -323,7 +404,7 @@ class _HomeState extends State<Home> {
                                               SizedBox(height: 4),
                                               Text(
                                                 'Pengguna Baru - Diskon 50%',
-                                                style: TextStyle(
+                                                style: GoogleFonts.montserrat(
                                                   fontSize: 14,
                                                   fontWeight: FontWeight.bold,
                                                 ),
@@ -331,7 +412,7 @@ class _HomeState extends State<Home> {
                                               SizedBox(height: 4),
                                               Text(
                                                 'Tanpa Min. Pembelian, diskon s/d 25RB',
-                                                style: TextStyle(
+                                                style: GoogleFonts.montserrat(
                                                   fontSize: 11,
                                                   color: Colors.black54,
                                                 ),
@@ -345,9 +426,8 @@ class _HomeState extends State<Home> {
                                           padding: const EdgeInsets.all(8),
                                           decoration: BoxDecoration(
                                             color: const Color(0xffF8F8F8),
-                                            borderRadius: BorderRadius.circular(
-                                              10,
-                                            ),
+                                            borderRadius:
+                                                BorderRadius.circular(10),
                                           ),
                                           child: const Icon(
                                             Icons.percent,
@@ -378,16 +458,18 @@ class _HomeState extends State<Home> {
                                       mainAxisAlignment:
                                           MainAxisAlignment.spaceBetween,
                                       children: [
-                                        const Text.rich(
+                                        Text.rich(
                                           TextSpan(
                                             children: [
                                               TextSpan(
                                                 text: 'Valid For ',
-                                                style: TextStyle(fontSize: 11),
+                                                style: GoogleFonts.montserrat(
+                                                  fontSize: 11,
+                                                ),
                                               ),
                                               TextSpan(
                                                 text: '30 Days',
-                                                style: TextStyle(
+                                                style: GoogleFonts.montserrat(
                                                   fontWeight: FontWeight.bold,
                                                   fontSize: 11,
                                                 ),
@@ -397,9 +479,8 @@ class _HomeState extends State<Home> {
                                         ),
                                         ElevatedButton(
                                           style: ElevatedButton.styleFrom(
-                                            backgroundColor: const Color(
-                                              0xffFF008C,
-                                            ),
+                                            backgroundColor:
+                                                const Color(0xffFF008C),
                                             padding: const EdgeInsets.symmetric(
                                               horizontal: 18,
                                               vertical: 8,
@@ -410,9 +491,9 @@ class _HomeState extends State<Home> {
                                             ),
                                           ),
                                           onPressed: () {},
-                                          child: const Text(
+                                          child: Text(
                                             'Pakai Voucher',
-                                            style: TextStyle(
+                                            style: GoogleFonts.montserrat(
                                               color: Colors.white,
                                               fontSize: 12,
                                               fontWeight: FontWeight.bold,
@@ -477,7 +558,7 @@ class _HomeState extends State<Home> {
                                         Container(
                                           child: Text(
                                             'KOLONG POINT',
-                                            style: TextStyle(
+                                            style: GoogleFonts.montserrat(
                                               fontSize: 14,
                                               fontWeight: FontWeight.bold,
                                             ),
@@ -487,7 +568,7 @@ class _HomeState extends State<Home> {
                                         Container(
                                           child: Text(
                                             'Dapatkan poin di setiap pembelanjaan Anda. Nikmati keuntungan eksklusif.',
-                                            style: TextStyle(
+                                            style: GoogleFonts.montserrat(
                                               fontSize: 10,
                                               fontWeight: FontWeight.w400,
                                             ),
@@ -524,7 +605,7 @@ class _HomeState extends State<Home> {
                             Container(
                               child: Text(
                                 'Coffee',
-                                style: TextStyle(
+                                style: GoogleFonts.montserrat(
                                   fontSize: 14,
                                   fontWeight: FontWeight.bold,
                                   color: Color(0xffFF0087),
@@ -534,7 +615,7 @@ class _HomeState extends State<Home> {
                             Container(
                               child: Text(
                                 'Non Coffee',
-                                style: TextStyle(
+                                style: GoogleFonts.montserrat(
                                   fontSize: 14,
                                   fontWeight: FontWeight.bold,
                                 ),
@@ -543,7 +624,7 @@ class _HomeState extends State<Home> {
                             Container(
                               child: Text(
                                 'Classic Tea',
-                                style: TextStyle(
+                                style: GoogleFonts.montserrat(
                                   fontSize: 14,
                                   fontWeight: FontWeight.bold,
                                 ),
@@ -552,7 +633,7 @@ class _HomeState extends State<Home> {
                             Container(
                               child: Text(
                                 'Ice Sugar',
-                                style: TextStyle(
+                                style: GoogleFonts.montserrat(
                                   fontSize: 14,
                                   fontWeight: FontWeight.bold,
                                 ),
@@ -574,7 +655,7 @@ class _HomeState extends State<Home> {
                               margin: EdgeInsets.only(left: 20),
                               child: Text(
                                 'Coffee',
-                                style: TextStyle(
+                                style: GoogleFonts.montserrat(
                                   fontWeight: FontWeight.bold,
                                   fontSize: 14,
                                 ),
@@ -592,504 +673,20 @@ class _HomeState extends State<Home> {
                                     shrinkWrap: true,
                                     gridDelegate:
                                         const SliverGridDelegateWithFixedCrossAxisCount(
-                                          crossAxisCount: 2,
-                                          crossAxisSpacing: 20,
-                                          mainAxisSpacing: 50,
-                                          childAspectRatio: 1,
-                                        ),
+                                      crossAxisCount: 2,
+                                      crossAxisSpacing: 20,
+                                      mainAxisSpacing: 50,
+                                      childAspectRatio: 1,
+                                    ),
                                     children: [
-                                      // menu 1
-                                      Container(
-                                        child: Column(
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.start,
-                                          children: [
-                                            Row(
-                                              crossAxisAlignment:
-                                                  CrossAxisAlignment.end,
-                                              children: [
-                                                Container(
-                                                  padding: EdgeInsets.symmetric(
-                                                    vertical: 0,
-                                                    horizontal: 5,
-                                                  ),
-                                                  decoration: BoxDecoration(
-                                                    color: Color(0xffD3FF88),
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                          4,
-                                                        ),
-                                                  ),
-                                                  child: Text(
-                                                    'new',
-                                                    style: TextStyle(
-                                                      color: Color(0xff5AF20E),
-                                                      fontWeight:
-                                                          FontWeight.bold,
-                                                    ),
-                                                  ),
-                                                ),
-                                                Container(
-                                                  child: Image(
-                                                    image: AssetImage(
-                                                      'assets/image/cup.png',
-                                                    ),
-                                                  ),
-                                                ),
-                                              ],
-                                            ),
-                                            SizedBox(height: 5),
-                                            Container(
-                                              child: Text(
-                                                'Kopi Kolong',
-                                                style: TextStyle(
-                                                  fontSize: 12,
-                                                  fontWeight: FontWeight.bold,
-                                                ),
-                                              ),
-                                            ),
-                                            Container(
-                                              child: Text(
-                                                'Rp.20.000',
-                                                style: TextStyle(
-                                                  fontSize: 10,
-                                                  fontWeight: FontWeight.bold,
-                                                ),
-                                              ),
-                                            ),
-                                          ],
-                                        ),
-                                      ),
-                                      // menu 1
-                                      Container(
-                                        child: Column(
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.start,
-                                          children: [
-                                            Row(
-                                              crossAxisAlignment:
-                                                  CrossAxisAlignment.end,
-                                              children: [
-                                                Container(
-                                                  padding: EdgeInsets.symmetric(
-                                                    vertical: 0,
-                                                    horizontal: 5,
-                                                  ),
-                                                  decoration: BoxDecoration(
-                                                    color: Color(0xffD3FF88),
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                          4,
-                                                        ),
-                                                  ),
-                                                  child: Text(
-                                                    'new',
-                                                    style: TextStyle(
-                                                      color: Color(0xff5AF20E),
-                                                      fontWeight:
-                                                          FontWeight.bold,
-                                                    ),
-                                                  ),
-                                                ),
-                                                Container(
-                                                  child: Image(
-                                                    image: AssetImage(
-                                                      'assets/image/cup.png',
-                                                    ),
-                                                  ),
-                                                ),
-                                              ],
-                                            ),
-                                            SizedBox(height: 5),
-                                            Container(
-                                              child: Text(
-                                                'Kopi Kolong',
-                                                style: TextStyle(
-                                                  fontSize: 12,
-                                                  fontWeight: FontWeight.bold,
-                                                ),
-                                              ),
-                                            ),
-                                            Container(
-                                              child: Text(
-                                                'Rp.20.000',
-                                                style: TextStyle(
-                                                  fontSize: 10,
-                                                  fontWeight: FontWeight.bold,
-                                                ),
-                                              ),
-                                            ),
-                                          ],
-                                        ),
-                                      ),
-                                      // menu 1
-                                      Container(
-                                        child: Column(
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.start,
-                                          children: [
-                                            Row(
-                                              crossAxisAlignment:
-                                                  CrossAxisAlignment.end,
-                                              children: [
-                                                Container(
-                                                  padding: EdgeInsets.symmetric(
-                                                    vertical: 0,
-                                                    horizontal: 5,
-                                                  ),
-                                                  decoration: BoxDecoration(
-                                                    color: Color(0xffD3FF88),
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                          4,
-                                                        ),
-                                                  ),
-                                                  child: Text(
-                                                    'new',
-                                                    style: TextStyle(
-                                                      color: Color(0xff5AF20E),
-                                                      fontWeight:
-                                                          FontWeight.bold,
-                                                    ),
-                                                  ),
-                                                ),
-                                                Container(
-                                                  child: Image(
-                                                    image: AssetImage(
-                                                      'assets/image/cup.png',
-                                                    ),
-                                                  ),
-                                                ),
-                                              ],
-                                            ),
-                                            SizedBox(height: 5),
-                                            Container(
-                                              child: Text(
-                                                'Kopi Kolong',
-                                                style: TextStyle(
-                                                  fontSize: 12,
-                                                  fontWeight: FontWeight.bold,
-                                                ),
-                                              ),
-                                            ),
-                                            Container(
-                                              child: Text(
-                                                'Rp.20.000',
-                                                style: TextStyle(
-                                                  fontSize: 10,
-                                                  fontWeight: FontWeight.bold,
-                                                ),
-                                              ),
-                                            ),
-                                          ],
-                                        ),
-                                      ),
-                                      Container(
-                                        child: Column(
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.start,
-                                          children: [
-                                            Row(
-                                              crossAxisAlignment:
-                                                  CrossAxisAlignment.end,
-                                              children: [
-                                                Container(
-                                                  padding: EdgeInsets.symmetric(
-                                                    vertical: 0,
-                                                    horizontal: 5,
-                                                  ),
-                                                  decoration: BoxDecoration(
-                                                    color: Color(0xffD3FF88),
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                          4,
-                                                        ),
-                                                  ),
-                                                  child: Text(
-                                                    'new',
-                                                    style: TextStyle(
-                                                      color: Color(0xff5AF20E),
-                                                      fontWeight:
-                                                          FontWeight.bold,
-                                                    ),
-                                                  ),
-                                                ),
-                                                Container(
-                                                  child: Image(
-                                                    image: AssetImage(
-                                                      'assets/image/cup.png',
-                                                    ),
-                                                  ),
-                                                ),
-                                              ],
-                                            ),
-                                            SizedBox(height: 5),
-                                            Container(
-                                              child: Text(
-                                                'Kopi Kolong',
-                                                style: TextStyle(
-                                                  fontSize: 12,
-                                                  fontWeight: FontWeight.bold,
-                                                ),
-                                              ),
-                                            ),
-                                            Container(
-                                              child: Text(
-                                                'Rp.20.000',
-                                                style: TextStyle(
-                                                  fontSize: 10,
-                                                  fontWeight: FontWeight.bold,
-                                                ),
-                                              ),
-                                            ),
-                                          ],
-                                        ),
-                                      ),
-                                      Container(
-                                        child: Column(
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.start,
-                                          children: [
-                                            Row(
-                                              crossAxisAlignment:
-                                                  CrossAxisAlignment.end,
-                                              children: [
-                                                Container(
-                                                  padding: EdgeInsets.symmetric(
-                                                    vertical: 0,
-                                                    horizontal: 5,
-                                                  ),
-                                                  decoration: BoxDecoration(
-                                                    color: Color(0xffD3FF88),
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                          4,
-                                                        ),
-                                                  ),
-                                                  child: Text(
-                                                    'new',
-                                                    style: TextStyle(
-                                                      color: Color(0xff5AF20E),
-                                                      fontWeight:
-                                                          FontWeight.bold,
-                                                    ),
-                                                  ),
-                                                ),
-                                                Container(
-                                                  child: Image(
-                                                    image: AssetImage(
-                                                      'assets/image/cup.png',
-                                                    ),
-                                                  ),
-                                                ),
-                                              ],
-                                            ),
-                                            SizedBox(height: 5),
-                                            Container(
-                                              child: Text(
-                                                'Kopi Kolong',
-                                                style: TextStyle(
-                                                  fontSize: 12,
-                                                  fontWeight: FontWeight.bold,
-                                                ),
-                                              ),
-                                            ),
-                                            Container(
-                                              child: Text(
-                                                'Rp.20.000',
-                                                style: TextStyle(
-                                                  fontSize: 10,
-                                                  fontWeight: FontWeight.bold,
-                                                ),
-                                              ),
-                                            ),
-                                          ],
-                                        ),
-                                      ),
-                                      Container(
-                                        child: Column(
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.start,
-                                          children: [
-                                            Row(
-                                              crossAxisAlignment:
-                                                  CrossAxisAlignment.end,
-                                              children: [
-                                                Container(
-                                                  padding: EdgeInsets.symmetric(
-                                                    vertical: 0,
-                                                    horizontal: 5,
-                                                  ),
-                                                  decoration: BoxDecoration(
-                                                    color: Color(0xffD3FF88),
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                          4,
-                                                        ),
-                                                  ),
-                                                  child: Text(
-                                                    'new',
-                                                    style: TextStyle(
-                                                      color: Color(0xff5AF20E),
-                                                      fontWeight:
-                                                          FontWeight.bold,
-                                                    ),
-                                                  ),
-                                                ),
-                                                Container(
-                                                  child: Image(
-                                                    image: AssetImage(
-                                                      'assets/image/cup.png',
-                                                    ),
-                                                  ),
-                                                ),
-                                              ],
-                                            ),
-                                            SizedBox(height: 5),
-                                            Container(
-                                              child: Text(
-                                                'Kopi Kolong',
-                                                style: TextStyle(
-                                                  fontSize: 12,
-                                                  fontWeight: FontWeight.bold,
-                                                ),
-                                              ),
-                                            ),
-                                            Container(
-                                              child: Text(
-                                                'Rp.20.000',
-                                                style: TextStyle(
-                                                  fontSize: 10,
-                                                  fontWeight: FontWeight.bold,
-                                                ),
-                                              ),
-                                            ),
-                                          ],
-                                        ),
-                                      ),
-                                      Container(
-                                        child: Column(
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.start,
-                                          children: [
-                                            Row(
-                                              crossAxisAlignment:
-                                                  CrossAxisAlignment.end,
-                                              children: [
-                                                Container(
-                                                  padding: EdgeInsets.symmetric(
-                                                    vertical: 0,
-                                                    horizontal: 5,
-                                                  ),
-                                                  decoration: BoxDecoration(
-                                                    color: Color(0xffD3FF88),
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                          4,
-                                                        ),
-                                                  ),
-                                                  child: Text(
-                                                    'new',
-                                                    style: TextStyle(
-                                                      color: Color(0xff5AF20E),
-                                                      fontWeight:
-                                                          FontWeight.bold,
-                                                    ),
-                                                  ),
-                                                ),
-                                                Container(
-                                                  child: Image(
-                                                    image: AssetImage(
-                                                      'assets/image/cup.png',
-                                                    ),
-                                                  ),
-                                                ),
-                                              ],
-                                            ),
-                                            SizedBox(height: 5),
-                                            Container(
-                                              child: Text(
-                                                'Kopi Kolong',
-                                                style: TextStyle(
-                                                  fontSize: 12,
-                                                  fontWeight: FontWeight.bold,
-                                                ),
-                                              ),
-                                            ),
-                                            Container(
-                                              child: Text(
-                                                'Rp.20.000',
-                                                style: TextStyle(
-                                                  fontSize: 10,
-                                                  fontWeight: FontWeight.bold,
-                                                ),
-                                              ),
-                                            ),
-                                          ],
-                                        ),
-                                      ),
-                                      // menu 1
-                                      Container(
-                                        child: Column(
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.start,
-                                          children: [
-                                            Row(
-                                              crossAxisAlignment:
-                                                  CrossAxisAlignment.end,
-                                              children: [
-                                                Container(
-                                                  padding: EdgeInsets.symmetric(
-                                                    vertical: 0,
-                                                    horizontal: 5,
-                                                  ),
-                                                  decoration: BoxDecoration(
-                                                    color: Color(0xffD3FF88),
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                          4,
-                                                        ),
-                                                  ),
-                                                  child: Text(
-                                                    'new',
-                                                    style: TextStyle(
-                                                      color: Color(0xff5AF20E),
-                                                      fontWeight:
-                                                          FontWeight.bold,
-                                                    ),
-                                                  ),
-                                                ),
-                                                Container(
-                                                  child: Image(
-                                                    image: AssetImage(
-                                                      'assets/image/cup.png',
-                                                    ),
-                                                  ),
-                                                ),
-                                              ],
-                                            ),
-                                            SizedBox(height: 5),
-                                            Container(
-                                              child: Text(
-                                                'Kopi Kolong',
-                                                style: TextStyle(
-                                                  fontSize: 12,
-                                                  fontWeight: FontWeight.bold,
-                                                ),
-                                              ),
-                                            ),
-                                            Container(
-                                              child: Text(
-                                                'Rp.20.000',
-                                                style: TextStyle(
-                                                  fontSize: 10,
-                                                  fontWeight: FontWeight.bold,
-                                                ),
-                                              ),
-                                            ),
-                                          ],
-                                        ),
-                                      ),
+                                      _buildProductItem(),
+                                      _buildProductItem(),
+                                      _buildProductItem(),
+                                      _buildProductItem(),
+                                      _buildProductItem(),
+                                      _buildProductItem(),
+                                      _buildProductItem(),
+                                      _buildProductItem(),
                                     ],
                                   ),
                                 ),
@@ -1129,9 +726,8 @@ class _HomeState extends State<Home> {
                                           padding: EdgeInsets.all(8),
                                           decoration: BoxDecoration(
                                             color: Color(0xff32D951),
-                                            borderRadius: BorderRadius.circular(
-                                              1000,
-                                            ),
+                                            borderRadius:
+                                                BorderRadius.circular(1000),
                                           ),
                                           child: Icon(
                                             RemixIcons.whatsapp_line,
@@ -1143,7 +739,7 @@ class _HomeState extends State<Home> {
                                         Container(
                                           child: Text(
                                             'Ceritaki ke 085399205213 (Chat Only)',
-                                            style: TextStyle(
+                                            style: GoogleFonts.montserrat(
                                               fontWeight: FontWeight.bold,
                                             ),
                                           ),
@@ -1158,7 +754,7 @@ class _HomeState extends State<Home> {
                                     ),
                                     child: Text(
                                       'Untuk pertanyaan, keluhan, atau masukan terkait layanan kami, silakan hubungi pusat layanan pengaduan, Butuh bantuan? Tenang ji, tim ta siap layani ta kapan saja !',
-                                      style: TextStyle(
+                                      style: GoogleFonts.montserrat(
                                         fontWeight: FontWeight.w400,
                                         fontSize: 10,
                                       ),
@@ -1170,7 +766,7 @@ class _HomeState extends State<Home> {
                             ),
                             Container(
                               margin: EdgeInsets.only(top: 20, bottom: 5),
-                              width: double.infinity, // 👈 Lebar penuh
+                              width: double.infinity,
                               color: Color(0xff000000).withOpacity(0.4),
                               height: 1,
                               child: Text(''),
@@ -1179,14 +775,11 @@ class _HomeState extends State<Home> {
                               margin: EdgeInsets.only(bottom: 0),
                               child: ElevatedButton(
                                 style: ElevatedButton.styleFrom(
-                                  elevation: 0, // tanpa bayangan
-                                  backgroundColor:
-                                      Colors.white, // tanpa warna background
-                                  shadowColor: Colors
-                                      .white, // pastikan tidak ada efek shadow
-                                  splashFactory: NoSplash
-                                      .splashFactory, // hilangkan efek klik ripple
-                                  padding: EdgeInsets.zero, // rapikan padding
+                                  elevation: 0,
+                                  backgroundColor: Colors.white,
+                                  shadowColor: Colors.white,
+                                  splashFactory: NoSplash.splashFactory,
+                                  padding: EdgeInsets.zero,
                                 ),
                                 onPressed: () {
                                   showModalBottomSheet(
@@ -1214,18 +807,18 @@ class _HomeState extends State<Home> {
                                               child: Text(''),
                                             ),
                                             SizedBox(height: 20),
-                                            const Text(
+                                            Text(
                                               'Sertifikasi Halal',
-                                              style: TextStyle(
+                                              style: GoogleFonts.montserrat(
                                                 fontWeight: FontWeight.bold,
                                                 fontSize: 16,
                                                 color: Color(0x80FF0087),
                                               ),
                                             ),
                                             SizedBox(height: 20),
-                                            const Text(
+                                            Text(
                                               'Maison De Kolong sudah tersertifikasi halal oleh MUI',
-                                              style: TextStyle(
+                                              style: GoogleFonts.montserrat(
                                                 fontWeight: FontWeight.bold,
                                                 fontSize: 14,
                                               ),
@@ -1259,8 +852,7 @@ class _HomeState extends State<Home> {
                                                       color: Colors.white,
                                                       borderRadius:
                                                           BorderRadius.circular(
-                                                            10,
-                                                          ),
+                                                              10),
                                                     ),
                                                     child: const Image(
                                                       width: 60,
@@ -1277,7 +869,8 @@ class _HomeState extends State<Home> {
                                                       children: [
                                                         Text(
                                                           'Majelis Ulama Indonesiadata',
-                                                          style: TextStyle(
+                                                          style: GoogleFonts
+                                                              .montserrat(
                                                             fontWeight:
                                                                 FontWeight.bold,
                                                             fontSize: 14,
@@ -1286,7 +879,8 @@ class _HomeState extends State<Home> {
                                                         SizedBox(height: 5),
                                                         Text(
                                                           '73410027828900925',
-                                                          style: TextStyle(
+                                                          style: GoogleFonts
+                                                              .montserrat(
                                                             fontWeight:
                                                                 FontWeight.bold,
                                                             fontSize: 14,
@@ -1309,7 +903,8 @@ class _HomeState extends State<Home> {
                                                 children: [
                                                   Text(
                                                     'Bebas dari bahan-bahan yang dilarang syariat islam',
-                                                    style: TextStyle(
+                                                    style:
+                                                        GoogleFonts.montserrat(
                                                       fontSize: 14,
                                                       color: Color(0x99000000),
                                                     ),
@@ -1327,7 +922,8 @@ class _HomeState extends State<Home> {
                                                 children: [
                                                   Text(
                                                     'Diproses dan disajikan sesuai dengan standar islami',
-                                                    style: TextStyle(
+                                                    style:
+                                                        GoogleFonts.montserrat(
                                                       fontSize: 14,
                                                       color: Color(0x99000000),
                                                     ),
@@ -1359,12 +955,11 @@ class _HomeState extends State<Home> {
                                             Container(
                                               child: Text(
                                                 'Maison De Kolong sudah tersertifikasi halal oleh MUI',
-                                                style: TextStyle(
+                                                style: GoogleFonts.montserrat(
                                                   fontSize: 10,
                                                   fontWeight: FontWeight.w400,
-                                                  color: Color(
-                                                    0xff000000,
-                                                  ).withOpacity(0.6),
+                                                  color: Color(0xff000000)
+                                                      .withOpacity(0.6),
                                                 ),
                                               ),
                                             ),
@@ -1389,30 +984,13 @@ class _HomeState extends State<Home> {
                       ),
 
                       // End::Menu
-                      SizedBox(
-                        height: 60,
-                      ), // Extra space untuk kotak ungu fixed
+                      SizedBox(height: 60),
                     ],
                   ),
                 ),
               ),
 
-              // Kotak Ungu Fixed di Bawah
-              Container(
-                width: 32,
-                height: 32,
-                decoration: BoxDecoration(
-                  color: Colors.white.withOpacity(0.2),
-                  shape: BoxShape.circle,
-                ),
-                child: Icon(
-                  RemixIcons.arrow_right_circle_fill,
-                  color: Colors.white,
-                  size: 23,
-                ),
-              ),
-
-              // Kotak Ungu Fixed di Bawah - SEKARANG DENGAN FUNGSI KLIK
+              // Kotak Ungu Fixed di Bawah - DENGAN FUNGSI KLIK
               Positioned(
                 bottom: 0,
                 left: 0,
@@ -1439,16 +1017,16 @@ class _HomeState extends State<Home> {
                           children: [
                             Text(
                               '1 Produk',
-                              style: TextStyle(
+                              style: GoogleFonts.montserrat(
                                 color: Colors.white,
                                 fontSize: 12,
                                 fontWeight: FontWeight.bold,
                               ),
                             ),
-                            SizedBox(height: 3,),
+                            SizedBox(height: 3),
                             Text(
                               'Rp. 20.000',
-                              style: TextStyle(
+                              style: GoogleFonts.montserrat(
                                 color: Colors.white,
                                 fontSize: 14,
                                 fontWeight: FontWeight.bold,
@@ -1456,7 +1034,6 @@ class _HomeState extends State<Home> {
                             ),
                           ],
                         ),
-
                         Container(
                           width: 32,
                           height: 32,
