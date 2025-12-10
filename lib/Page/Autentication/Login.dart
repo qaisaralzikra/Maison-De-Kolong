@@ -4,6 +4,8 @@ import 'package:mainson_de_kolong/Page/Autentication/ForgotPassword.dart';
 import 'package:mainson_de_kolong/Page/Autentication/Registrasi.dart';
 import 'package:mainson_de_kolong/main.dart';
 import 'package:remixicon/remixicon.dart';
+import 'package:dio/dio.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class Login extends StatefulWidget {
   const Login({super.key});
@@ -16,6 +18,76 @@ class _LoginState extends State<Login> {
   // ✅ Controller harus disimpan di State, bukan di build()
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
+
+  final Dio dio = Dio();
+
+  Future<void> loginUser() async {
+    final email = emailController.text.trim();
+    final password = passwordController.text.trim();
+
+    try {
+      final response = await dio.post(
+        "http://127.0.0.1:8000/api/v1/login",
+        options: Options(
+          headers: {
+            "Accept": "application/json",
+            "Content-Type": "application/json",
+          },
+        ),
+        data: {"email": email, "password": password},
+      );
+
+      print("RAW RESPONSE: ${response.data}");
+
+      // Ambil token dari berbagai kemungkinan key
+      final data = response.data;
+      final token =
+          data['token'] ?? data['access_token'] ?? data['data']?['token'];
+
+      if (token == null) {
+        print("❌ Tidak ada token dalam response");
+        return;
+      }
+
+      // Simpan token
+      final prefs = await SharedPreferences.getInstance();
+      await prefs.setString('token', token);
+
+      print("✅ Token berhasil disimpan: $token");
+
+      print("LOGIN SUCCESS: ${response.data}");
+
+      // Jika login berhasil → masuk ke halaman utama
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(builder: (_) => MainStack()),
+      );
+    } on DioException catch (e) {
+      if (e.response != null) {
+        print("SERVER ERROR: ${e.response?.data}");
+        _showError("Login gagal: ${e.response?.data['message'] ?? 'Unknown'}");
+      } else {
+        print("NETWORK ERROR: ${e.message}");
+        _showError("Tidak dapat terhubung ke server.");
+      }
+    }
+  }
+
+  void _showError(String message) {
+    showDialog(
+      context: context,
+      builder: (_) => AlertDialog(
+        title: Text("Error"),
+        content: Text(message),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.pop(context),
+            child: Text("OK"),
+          ),
+        ],
+      ),
+    );
+  }
 
   @override
   void dispose() {
@@ -256,7 +328,7 @@ class _LoginState extends State<Login> {
               // Tombol Login
               GestureDetector(
                 onTap: () {
-                  Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => MainStack()));
+                  loginUser();
                 },
                 child: Container(
                   margin: const EdgeInsets.only(top: 30),

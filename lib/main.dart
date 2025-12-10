@@ -9,6 +9,7 @@ import 'package:mainson_de_kolong/Page/Autentication/Login.dart';
 import 'package:mainson_de_kolong/Page/Profil/Porfil.dart';
 import 'package:mainson_de_kolong/Page/Reedem%20Voucher/ReedemVoucher.dart';
 import 'package:mainson_de_kolong/Page/SplashScreen/SplashScreen.dart';
+import 'package:get/get.dart';
 
 void main() {
   runApp(const Azka());
@@ -19,7 +20,7 @@ class Azka extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return GetMaterialApp(
       title: 'Home Page',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
@@ -48,12 +49,7 @@ class MainStack extends StatefulWidget {
 class _MainStackState extends State<MainStack> {
   int _page = 0;
 
-  final List<Widget> _pages = const [
-    Home(),
-    History(),
-    PromoPage(),
-    Profil(),
-  ];
+  final List<Widget> _pages = const [Home(), History(), PromoPage(), Profil()];
 
   @override
   Widget build(BuildContext context) {
@@ -65,10 +61,7 @@ class _MainStackState extends State<MainStack> {
       body: IndexedStack(index: _page, children: _pages),
 
       bottomNavigationBar: Container(
-        decoration: const BoxDecoration(
-          color: Colors.transparent,
-
-        ),
+        decoration: const BoxDecoration(color: Colors.transparent),
         child: CurvedNavigationBar(
           index: _page,
           height: 60,
@@ -78,14 +71,26 @@ class _MainStackState extends State<MainStack> {
           animationDuration: const Duration(milliseconds: 400),
 
           items: [
-            Icon(Icons.home,
-                size: 28, color: _page == 0 ? mainColor : inactiveColor),
-            Icon(Remix.store_3_fill,
-                size: 28, color: _page == 1 ? mainColor : inactiveColor),
-            Icon(Remix.coupon_fill,
-                size: 28, color: _page == 2 ? mainColor : inactiveColor),
-            Icon(Icons.person,
-                size: 28, color: _page == 3 ? mainColor : inactiveColor),
+            Icon(
+              Icons.home,
+              size: 28,
+              color: _page == 0 ? mainColor : inactiveColor,
+            ),
+            Icon(
+              Remix.store_3_fill,
+              size: 28,
+              color: _page == 1 ? mainColor : inactiveColor,
+            ),
+            Icon(
+              Remix.coupon_fill,
+              size: 28,
+              color: _page == 2 ? mainColor : inactiveColor,
+            ),
+            Icon(
+              Icons.person,
+              size: 28,
+              color: _page == 3 ? mainColor : inactiveColor,
+            ),
           ],
 
           onTap: (index) {
@@ -99,4 +104,3 @@ class _MainStackState extends State<MainStack> {
     );
   }
 }
-
